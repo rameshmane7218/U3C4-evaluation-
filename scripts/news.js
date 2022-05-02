@@ -30,3 +30,21 @@ dataDiv.append(title, description);
 // box.append(img, dataDiv);
 
 detailed_news.append(img, dataDiv);
+
+
+
+
+// search functionality 
+let search = (event)=>{
+    if(event.key == "Enter"){
+        // console.log("entered");
+        let query = document.getElementById("search_input").value;
+        // console.log(query);
+        localStorage.setItem("query",query);
+        window.location.href = "search.html";
+        
+        
+    }
+}
+
+document.getElementById("search_input").addEventListener("keydown", search);

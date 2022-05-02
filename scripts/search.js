@@ -14,9 +14,9 @@ console.log('appendData:', appendData)
 appendNews(appendData);
 
 
-let resultDiv = document.getElementById("results");
+// let resultDiv = document.getElementById("results");
 function appendNews(data) {
-    resultDiv.innerHTML = null;
+    document.getElementById("results").innerHTML = null;
     data.forEach((el) => {
 
         let box = document.createElement("div");
@@ -41,7 +41,7 @@ function appendNews(data) {
 
         box.append(img, dataDiv);
 
-        resultDiv.append(box);
+        document.getElementById("results").append(box);
 
 
     });
@@ -51,3 +51,20 @@ let storeData = (el) => {
     localStorage.setItem("news", JSON.stringify(el));
     window.location.href = "news.html";
 }
+
+
+
+// search functionality 
+let search = (event)=>{
+    if(event.key == "Enter"){
+        // console.log("entered");
+        let query = document.getElementById("search_input").value;
+        // console.log(query);
+        localStorage.setItem("query",query);
+        window.location.href = "search.html";
+        
+        
+    }
+}
+
+document.getElementById("search_input").addEventListener("keydown", search);
